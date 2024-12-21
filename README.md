@@ -3,6 +3,18 @@
 ## Description
 This website collects requirements from customers of a financial analysis system. This website is constructed of three modules: the user information maintenance module, the user feedback management module and the user analysis module.
 
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+   - [Setup with npm or yarn](#setup-with-npm-or-yarn)
+   - [Setup MySQL](#setup-mysql)
+   - [Setup JSON Web Token (JWT)](#setup-json-web-token-jwt)
+   - [Setup Environment Variables](#setup-environment-variables)
+   - [Start the Server](#start-the-server)
+- [Dependencies](#dependencies)
+- [Technologies Used](#technologies-used)
+- [Acknowledgements](#acknowledgements)
+
 ## Installation
 
 ### Prerequisites:
@@ -96,6 +108,26 @@ This website collects requirements from customers of a financial analysis system
    ```bash
    JWT_SECRET=your_generated_secret_key
    ```
+
+### Setup Environment Variables:
+1. Create a `.env` file in the root directory of the project.
+2. Add the following environment variables to the `.env` file:
+   ```bash
+   DATABASE_HOST=your_database_host
+   DATABASE_USER=your_database_user
+   DATABASE_PASSWORD=your_database_password
+   DATABASE=your_database_name
+   JWT_SECRET=your_generated_secret_key
+   JWT_EXPIRES=90d
+   COOKIE_EXPIRES=90
+   ```
+
+### Start the Server:
+1. Start the server using the following command:
+   ```bash
+   npm start
+   ```
+2. Open your browser and navigate to `http://localhost:3000` to access the application.
 
 ## Dependencies
 
