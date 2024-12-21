@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback detail</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/manager'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/manager/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form method="POST" action="/auth/feedback/update" id="vfb">
+                <button type="submit" style="float: right">Submit</button>
+                <h3><b>Feedback detail</b></h3>
+                <br>
+                <br>
+                <div style="margin: 0px">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>User ID</th>
+                            <th>Module</th>
+                            <th>Detail</th>
+                            <th>State</th>
+                        </tr>
+                        <%const states = ["submitted", "processing", "accepted", "rejected"];
+                        if(!(feedback == null) && feedback.length > 0){
+                            feedback.forEach((data) => { %>
+                        <tr>
+                            <%const myDate = new Date(data.date);
+                            const date = ('0' + myDate.getDate()).slice(-2) + '/' + ('0' + (myDate.getMonth()+1)).slice(-2) + '/' + myDate.getFullYear();%>
+                            <td><%= date %></td>
+                            <td><%= data.user_id %></td>
+                            <td><%= data.module %></td>
+                            <td><%= data.detail %></td>
+                            <td>
+                                <select form="vfb" id="state" name="state">
+                                    <option value="<%= data.state %>"><%= data.state %></option>
+                                        <%for(var i=0; i<4; i++){
+                                            if(states[i]!=data.state){%>
+                                                <option value="<%= states[i] %>"><%= states[i] %></option>
+                                            <%}%>
+                                        <%}%>
+                                </select>
+                            </td>
+                            <%});%>
+                        </tr>
+                        <%} else {%>
+                        <tr>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

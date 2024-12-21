@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Personal detail</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/user'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/user/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form>
+                <a href="/auth/user/logout" type="view" style="float: right; top: 0px" value="Logout">Logout</a>
+                <h3><b>Personal detail</b></h3>
+                <br>
+                <p>Name: <%= user.name %> <%= user.surname %></p>
+                <p>Username: <%= user.username %></p>
+                <p>ID: <%= user.id %></p>
+            </div>
+        </div>
+    </body>
+</html>

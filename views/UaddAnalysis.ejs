@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Submit analysis</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/user'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/user/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form method="POST" action="/user/analysis/add">
+                <button type="submit" style="float: right">Submit</button>
+                <h3><b>Analysis</b></h3>
+                <br>
+                <p>Enter analysis in the table: </p>
+                <br>
+                <div style="margin: 0px">
+                    <table id="table">
+                        <tr>
+                            <th style="border-color: rgb(128, 128, 128)">Company</th>
+                            <th style="border-color: rgb(128, 128, 128)">Stocks</th>
+                            <th style="border-color: rgb(128, 128, 128)">Price ($)</th>
+                        </tr>
+                        <tr>
+                            <th style="border-color: rgb(128, 128, 128); padding: 0px"><input style="border-color: transparent" placeholder="Enter company..." name="company" id="company" required></th>
+                            <th style="border-color: rgb(128, 128, 128); padding: 0px"><input style="border-color: transparent" placeholder="Enter stocks..." name="stock" id="stock" required></th>
+                            <th style="border-color: rgb(128, 128, 128); padding: 0px"><input style="border-color: transparent" placeholder="Enter price..." name="price" id="price" required></th>
+                        </tr>
+                    </table>
+                </div>
+                <button style="display: block" type="onclick" onclick="addRow()">+ row</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function addRow() {
+            var table = document.getElementById("table");
+            var row = table.insertRow();
+            var cell1 = row.insertCell();
+            var cell2 = row.insertCell();
+            var cell3 = row.insertCell();
+            cell1.style = "border-color: rgb(128, 128, 128); padding: 0px";
+            cell2.style = "border-color: rgb(128, 128, 128); padding: 0px";
+            cell3.style = "border-color: rgb(128, 128, 128); padding: 0px";
+            cell1.innerHTML = '<input style="border-color: transparent" placeholder="Enter company..." name="company" id="company" required>';
+            cell2.innerHTML = '<input style="border-color: transparent" placeholder="Enter stocks..." name="stock" id="stock" required>';
+            cell3.innerHTML = '<input style="border-color: transparent" placeholder="Enter price..." name="price" id="price" required>';
+        }
+    </script>
+</html>

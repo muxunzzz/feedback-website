@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Submit feedback</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/user'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/user/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form method="POST" action="/user/feedback/add">
+                <button type="submit" style="float: right">Submit</button>
+                <h3><b>Feedback</b></h3>
+                <br>
+                <p>Module: </p>
+                <input placeholder="Enter the module..." name="module" id="module" required>
+                <br>
+                <p>Detail: </p>
+                <textarea style="height: 250px" placeholder="Enter the detail..." name="detail" id="detail" required></textarea>
+            </div>
+        </div>
+    </body>
+</html>

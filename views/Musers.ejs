@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>User detail</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/manager'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/manager/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form action="/manager/users/search">
+                <button style="float: right; width: auto; border: none; padding: 20px; background-color: white"><span style="float: right" class="material-icons">search</span></button>
+                <input type="text" style="width: 200px; height: 50px; margin: 5px 0px; float: right" placeholder="Search.." id="target" name="target">
+                <h3><b>User detail</b></h3>
+                <br>
+                <div style="margin: 0px">
+                    <table>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>View</th>
+                        </tr>
+                        <%if(!(users == null) && users.length > 0){
+                            users.forEach((data) => {%>
+                        <tr>
+                            <td><%= data.id %></td>
+                            <td><%= data.username %></td>
+                            <td><%= data.name %> <%= data.surname %></td>
+                            <td><a href="/manager/users/<%= data.id %>" style="background-color: white; color: #3D85C4">view user detail</a></td>
+                        </tr>
+                        <%});
+                        } else {%>
+                        <tr>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

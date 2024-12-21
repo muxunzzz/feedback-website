@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <form action="/auth/login" method="POST" type="<%= format %>" style="height: 350px;">
+            <div>
+                <b><h1>LOGIN</h1></b>
+            </div>
+            <div>
+                <input type="login" placeholder="Username" id="username" name="username" required>
+            </div>
+            <div>
+                <input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+            <%if(!(message==null)){%>
+                <div class="alert">
+                    <%= message %>
+                </div>
+            <%}%>
+            <div>
+                <button type="submit" style="-ms-transform: translateY(70%); transform: translateY(70%)" value="Login">Confirm</button>
+            </div>
+        </form>
+    </body>
+</html>

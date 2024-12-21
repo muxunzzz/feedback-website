@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/user'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/user/profile'">person</span>
+        </nav>
+        <div type="box">
+            <form>
+                <a href="/user/feedback/add" type="view" style="float: right; top: 0px;">Add feedback</a>
+                <h3><b>Feedback</b></h3>
+                <br>
+                <p>Total feedback: <%= total %></p>
+                <br>
+                <div style="margin: 0px">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Detail</th>
+                            <th>State</th>
+                        </tr>
+                        <%if(!(feedback == null) && feedback.length > 0){
+                            feedback.forEach((data) => {%>
+                        <tr>
+                            <%const myDate = new Date(data.date);
+                            const date = ('0' + myDate.getDate()).slice(-2) + '/' + ('0' + (myDate.getMonth()+1)).slice(-2) + '/' + myDate.getFullYear();%>
+                            <td><%= date %></td>
+                            <td type="left"><%= data.detail %></td>
+                            <td><%= data.state %></td>
+                        </tr>
+                        <%});
+                        } else {%>
+                        <tr>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                            <td><%= message %></td>
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

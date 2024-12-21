@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <nav>
+            <span class="material-icons" onclick="location='/user'">home</span>
+            <span class="material-icons" style="float: right" onclick="location='/user/profile'">person</span>
+        </nav>
+        <div style="width: 100%; display: flex; flex-direction: row; justify-content: center; background-color: rgb(208, 225, 242); padding: 50px 0px; padding-right: 20px; margin: 0px">
+            <form type="view">
+                <h2><b>Payment detail</b></h2>
+                <br>
+                <div type="text">
+                    <p>Expiry date: <%= expire %></p>
+                </div>
+                <a href="/user/payment" type="view">View detail</a>
+            </form>
+            <form type="view">
+                <h2><b>Feedback</b></h2>
+                <br>
+                <div type="text">
+                    <p>Submitted: <%= submitted %></p>
+                    <p>Processing: <%= processing %></p>
+                    <p>Accepted: <%= accepted %></p>
+                    <p>Rejected: <%= rejected %></p>
+                </div>
+                <a href="/user/feedback" type="view">View feedback</a>
+            </form>
+            <form type="view">
+                <h2><b>Analysis</b></h2>
+                <br>
+                <div type="text">
+                    <p>Companys: <%= company %></p> 
+                    <p>Total: $<%= total %></p>
+                </div>
+                <a href="/user/analysis" type="view">View analysis</a>
+            </form>
+        </div>
+    </body>
+</html>
