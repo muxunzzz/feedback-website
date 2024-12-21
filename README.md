@@ -9,6 +9,7 @@ This website collects requirements from customers of a financial analysis system
 - **Node.js** (Download and install from [nodejs.org](https://nodejs.org))
 - **npm** (Comes bundled with Node.js) or **yarn**
 
+### Setup with npm or yarn:
 1. Clone the repository:
    
    ```bash
@@ -39,6 +40,61 @@ This website collects requirements from customers of a financial analysis system
    ```bash
    npm run build
    npm start
+   ```
+
+### Setup MySQL:
+1. Install MySQL
+
+   **On Windows**:
+   1. Download the MySQL installer from [MySQL Downloads](https://dev.mysql.com/downloads/installer/).
+	2.	Run the installer and select Server Only during installation.
+	3.	Follow the prompts to complete the installation and configure the root password.
+
+   **On macOS (via Homebrew)**:
+   ```bash
+   brew install mysql
+   brew services start mysql
+   ```
+   
+   **On Linux (Ubuntu/Debian)**:
+   ```bash
+   sudo apt update
+   sudo apt install mysql-server
+   sudo mysql_secure_installation
+   ```
+
+   - During installation, follow the prompts to set a root password and secure the database.
+  
+2. Configure MySQL
+
+   1. Log into MySQL:
+      ```bash
+      mysql -u root -p  
+      ```
+   2. Create a database for the project:
+      ```bash
+      CREATE DATABASE project_db;
+      ```
+   3. Create a user and grant permissions:
+      ```bash
+      CREATE USER 'project_user'@'localhost' IDENTIFIED BY 'password';  
+      GRANT ALL PRIVILEGES ON project_db.* TO 'project_user'@'localhost';  
+      FLUSH PRIVILEGES;  
+      ```
+
+### Setup JSON Web Token (JWT):
+
+1. Install the JWT package:
+   ```bash
+   npm install jsonwebtoken  
+   ```
+2. Generate a Secret Key (used to sign the tokens):
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"  
+   ```
+3. Add the generated key to your .env file:
+   ```bash
+   JWT_SECRET=your_generated_secret_key
    ```
 
 ## Dependencies
